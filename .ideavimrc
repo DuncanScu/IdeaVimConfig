@@ -1,0 +1,78 @@
+""" Editing and Reloading the Config
+set relativenumber
+set clipboard+=unnamed
+set clipboard+=ideaput
+nnoremap \e :e ~/.ideavimrc<CR>
+nnoremap \r :action IdeaVim.ReloadVimRc.reload<CR>
+
+""" The Leader Key
+let mapleader=" "
+
+""" Distraction Free Mode
+nnoremap <c-z> :action ToggleDistractionFreeMode<CR>
+nnoremap <A-Enter> :action ToggleFullScreen<CR>
+
+""" Navigation
+nnoremap <leader>sp :action SplitVertically<CR>
+nnoremap <leader>sc :action Unsplit<CR>
+nnoremap <leader>sm :action MoveEditorToOppositeTabGroup<CR>
+sethandler <c-j> a:vim
+sethandler <c-k> a:vim
+nnoremap <leader>sh <c-w>h
+nnoremap <leader>sl <c-w>l
+nnoremap <leader>sj <c-w>j
+nnoremap <leader>sk <c-w>k
+nnoremap <Leader>on :action EditSourceInNewWindow<CR>
+nnoremap <A-d> :action CloseContent<CR>
+nnoremap <Leader>qa :action CloseAllEditors<CR>
+nnoremap <Leader>pv :action ActivateProjectToolWindow<CR>
+nnoremap <Leader>pf :action SearchEverywhere<CR>
+
+nnoremap <Leader><leader> :action NewFile<CR>
+
+""" Editing source code
+set ideajoin
+set idearefactormode=keep
+vnoremap < <gv
+vnoremap > >gv
+nnoremap [[ :action MethodUp<CR>
+nnoremap ]] :action MethodDown<CR
+nnoremap cr :action CollapseRegion<CR>
+nnoremap or :action ExpandRegion<CR>
+nnoremap <c-/> :action CommentByLineComment<CR>
+nnoremap <A-r> :action Refactorings.QuickListPopupAction<CR>
+vnoremap <A-r> :action Refactorings.QuickListPopupAction<CR>
+nnoremap <Leader>f  :action ReformatCode<CR>
+nnoremap <leader>o :action OptimizeImports<CR>
+nnoremap <c-r> :action RecentFiles<CR>
+nnoremap <leader>ne :action GotoNextError<CR>
+nnoremap <leader>pe :action GotoPreviousError<CR>
+nnoremap <leader>ve :action ActivateProblemsViewToolWindow<CR>
+nnoremap <leader>rn :action RenameElement<CR>
+nnoremap <c-s> :write<CR>
+nnoremap <A-Up> :action MoveLineUp<CR>
+nnoremap <A-Down> :action MoveLineDown<CR>
+vnoremap <A-Up> :action MoveStatementUp<CR>
+vnoremap <A-Down> :action MoveStatementDown<CR>
+nnoremap <A-.> :action ShowIntentionActions<CR>
+
+""" Searching and Source Code Navigation
+set incsearch
+nnoremap <leader>fr :action FindUsages<CR>
+nnoremap <leader>s :action GotoRelated<CR>
+nnoremap <leader>h :action CallHierarchy<CR>
+nnoremap <leader>b :action ShowNavBar<CR>
+nnoremap <c-o> :action GotoSymbol<CR>
+nnoremap gi :action GotoImplementation<CR>
+nnoremap gd :action GotoDefinition<CR>
+nnoremap gb :action GotToSuperMethod<CR>
+nnoremap <c-f> :action Find<CR>
+nnoremap <leader>vt :action ActivateUnitTestsToolWindow<CR>
+
+""" Tool windows
+nnoremap <c-p> :action JumpToLastWindow<CR>
+nnoremap <c-x> :action HideAllWindows<CR>
+
+""" Running Applications
+nnoremap <c-s-r> :action Run<CR>
+nnoremap <c-s-d> :action Debug<CR>
