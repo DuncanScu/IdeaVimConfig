@@ -1,5 +1,6 @@
 """ Editing and Reloading the Config
 set relativenumber
+set number
 set clipboard+=unnamed
 set clipboard+=ideaput
 nnoremap \e :e ~/.ideavimrc<CR>
@@ -14,7 +15,7 @@ nnoremap <A-Enter> :action ToggleFullScreen<CR>
 
 """ Navigation
 nnoremap <leader>sp :action SplitVertically<CR>
-nnoremap <leader>sc :action Unsplit<CR>
+nnoremap <leader>sc :action UnSplit<CR>
 nnoremap <leader>sm :action MoveEditorToOppositeTabGroup<CR>
 sethandler <c-j> a:vim
 sethandler <c-k> a:vim
@@ -47,7 +48,8 @@ nnoremap <leader>o :action OptimizeImports<CR>
 nnoremap <c-r> :action RecentFiles<CR>
 nnoremap <leader>ne :action GotoNextError<CR>
 nnoremap <leader>pe :action GotoPreviousError<CR>
-nnoremap <leader>ve :action ActivateProblemsViewToolWindow<CR>
+nnoremap <leader>se :action ActivateProblemsViewToolWindow<CR>
+nnoremap <leader>ve :action ShowErrorDescription<CR>
 nnoremap <leader>rn :action RenameElement<CR>
 nnoremap <c-s> :write<CR>
 nnoremap <A-Up> :action MoveLineUp<CR>
@@ -55,6 +57,7 @@ nnoremap <A-Down> :action MoveLineDown<CR>
 vnoremap <A-Up> :action MoveStatementUp<CR>
 vnoremap <A-Down> :action MoveStatementDown<CR>
 nnoremap <A-.> :action ShowIntentionActions<CR>
+vnoremap <C-/> :action CommentByLineComment<CR>
 
 """ Searching and Source Code Navigation
 set incsearch
@@ -64,10 +67,12 @@ nnoremap <leader>h :action CallHierarchy<CR>
 nnoremap <leader>b :action ShowNavBar<CR>
 nnoremap <c-o> :action GotoSymbol<CR>
 nnoremap gi :action GotoImplementation<CR>
-nnoremap gd :action GotoDefinition<CR>
+nnoremap gd :action GotoDeclaration<CR>
 nnoremap gb :action GotToSuperMethod<CR>
 nnoremap <c-f> :action Find<CR>
 nnoremap <leader>vt :action ActivateUnitTestsToolWindow<CR>
+nnoremap <leader>qd :action QuickImplementations<CR>
+inoremap <C-h> :action ParameterInfo<CR>
 
 """ Tool windows
 nnoremap <c-p> :action JumpToLastWindow<CR>
